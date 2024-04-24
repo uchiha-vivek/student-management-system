@@ -4,6 +4,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import RegisterStudent from './components/RegisterStudent'
 import StudentCollection from './components/StudentCollection'
+import StudentRefresher from './components/StudentRefresher'
  
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element={<StudentCollection/>}></Route>
           <Route path="/studentcollection" element={<StudentCollection/>}></Route>
           <Route path="/registerstudent" element={<RegisterStudent/>} ></Route>
+          <Route path='/editStudent/:id'  element={<StudentRefresher/>} ></Route>
          </Routes>
 
       

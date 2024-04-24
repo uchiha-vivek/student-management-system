@@ -11,6 +11,18 @@ class StudentService {
     return axios.get(STUDENT_URI);
   }
 
+  deleteStudent(id){
+     return axios.delete(STUDENT_URI + "/" +id);
+  }
+
+ getStudentById(id){
+  return axios.get(STUDENT_URI + "/" + id);
+ }
+
+ updateStudentById(student,id){
+  return axios.put(STUDENT_URI + "/" + id, student);
+ }
+
 }
 
 export default new StudentService();

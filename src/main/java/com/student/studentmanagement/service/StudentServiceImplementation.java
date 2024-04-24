@@ -4,6 +4,7 @@ package com.student.studentmanagement.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import com.student.studentmanagement.entity.StudentEntity;
@@ -44,6 +45,32 @@ public class StudentServiceImplementation implements StudentService {
         return studentEntities2;
 
    }
+
+   @Override
+   public boolean deleteStudent(Long id){
+    StudentEntity studentEntity = studentRepository.findById(id).get();
+    studentRepository.delete(studentEntity);
+    return true;
+   }
  
+  @Override
+  public StudentEntity getStudentById(Long id){
+
+    StudentEntity studentEntity = studentRepository.findById(null).get();
+    StudentEntity studentEntity2 =new StudentEntity();
+    BeanUtils.copyProperties(studentEntity, studentEntity2);
+    return studentEntity2;
+  }
+
+
+  @Override
+  public StudentEntity updateStudentById(Long id,StudentEntity studentEntity){
+    StudentEntity studentEntity2 = studentRepository.findById(id).get();
+    studentEntity2.setStudentName(studentEntity.getStudentName());
+    studentEntity2.setBranchName(studentEntity.getBranchName());
+    studentEntity2.setEmail(studentEntity.getEmail());
+    studentRepository.save(studentEntity2);
+    return studentEntity;
+  }
 
 }

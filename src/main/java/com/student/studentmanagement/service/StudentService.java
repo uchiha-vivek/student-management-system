@@ -13,4 +13,10 @@ public interface StudentService {
 
      List<StudentEntity> getAllStudents();
 
+     boolean deleteStudent (Long id);
+
+     StudentEntity getStudentById(Long id);
+
+     StudentEntity updateStudentById(Long id, StudentEntity studentEntity);
+
 }
